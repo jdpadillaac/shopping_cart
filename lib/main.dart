@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_cart/ui/contants/colors.dart';
+import 'package:shopping_cart/ui/pages/home/home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,15 +10,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Shopping cart',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: AppColors.primary,
+        accentColor: AppColors.accent,
       ),
-      home: Scaffold(
-        body: Column(),
-      )
+      home: HomePage(),
     );
   }
 }
-
-
