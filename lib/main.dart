@@ -4,6 +4,7 @@ import 'package:shopping_cart/domain/services/products_service.dart';
 import 'package:shopping_cart/services/firebase/products.dart';
 import 'package:shopping_cart/ui/bloc/shpping_cart/shopping_cart_bloc.dart';
 import 'package:shopping_cart/ui/contants/colors.dart';
+import 'package:shopping_cart/ui/pages/cart/cart_page.dart';
 import 'package:shopping_cart/ui/pages/home/home_page.dart';
 
 void main() {
@@ -30,7 +31,10 @@ class MyApp extends StatelessWidget {
           primaryColor: AppColors.primary,
           accentColor: AppColors.accent,
         ),
-        home: HomePage(),
+        home: const HomePage(),
+        routes: {
+          CartPage.route: (_) => const CartPage(),
+        },
       ),
     );
   }

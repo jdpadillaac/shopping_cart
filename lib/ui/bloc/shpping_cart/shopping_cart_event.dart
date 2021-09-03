@@ -44,3 +44,14 @@ class ReduceQuantity extends ShoppingCartEvent {
   @override
   List<Object?> get props => [productId];
 }
+
+class ProductDeleted extends ShoppingCartEvent {
+  const ProductDeleted({
+    required this.productId,
+  });
+
+  final String productId;
+
+  @override
+  List<Object?> get props => [productId];
+}

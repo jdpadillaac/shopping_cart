@@ -12,7 +12,6 @@ class _OverlayBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ShoppingCartBloc, ShoppingCartState>(
       builder: (BuildContext context, ShoppingCartState state) {
-        print(state);
         final bloc = context.read<ShoppingCartBloc>();
         int quantity = 0;
         ProductCart? productFounded;

@@ -7,6 +7,7 @@ import 'package:shopping_cart/ui/bloc/home/home_bloc.dart';
 import 'package:shopping_cart/ui/bloc/shpping_cart/shopping_cart_bloc.dart';
 import 'package:shopping_cart/ui/contants/colors.dart';
 import 'package:shopping_cart/ui/contants/spacing.dart';
+import 'package:shopping_cart/ui/pages/cart/cart_page.dart';
 import 'package:shopping_cart/ui/shared/overlay.dart';
 
 part 'widgets/product.dart';
