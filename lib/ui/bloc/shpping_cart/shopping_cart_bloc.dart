@@ -85,11 +85,15 @@ class ShoppingCartBloc extends Bloc<ShoppingCartEvent, ShoppingCartState> {
     ProductCart? founded;
     founded = ProductCart.findById(newList, event.productId);
 
-    if (founded != null && founded.quantity > 0) {
+    if (founded != null ) {
       newList.remove(founded);
-      newList.add(founded.copyWith(quantity: founded.quantity - 1));
-      productList = newList;
-      yield ProductAdded(products: newList);
+      if (founded.quantity > 0) {
+        newList.remove(founded);
+        newList.add(founded.copyWith(quantity: founded.quantity - 1));
+      }
     }
+
+    productList = newList;
+    yield ProductAdded(products: newList);
   }
 }

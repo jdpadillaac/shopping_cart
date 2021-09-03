@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shopping_cart/domain/models/product.dart';
@@ -11,7 +10,10 @@ import 'package:shopping_cart/ui/contants/spacing.dart';
 import 'package:shopping_cart/ui/shared/overlay.dart';
 
 part 'widgets/product.dart';
+
 part 'widgets/overlay_body.dart';
+
+part 'widgets/cart.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -87,18 +89,3 @@ class _ProductList extends StatelessWidget {
   }
 }
 
-class _HomeCart extends StatelessWidget {
-  const _HomeCart({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: AppSpacing.md,
-      ),
-      child: InkWell(
-        child: Icon(Icons.shopping_cart),
-      ),
-    );
-  }
-}
