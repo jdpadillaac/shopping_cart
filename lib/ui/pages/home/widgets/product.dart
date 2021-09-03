@@ -63,17 +63,24 @@ class _ProductItem extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Container(
-                height: 30,
-                width: 30,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: AppColors.primary
-                ),
-                child: Icon(
-                  Icons.shopping_basket,
-                  size: AppSpacing.sl,
-                  color: AppColors.white,
+              InkWell(
+                onTap: () {
+                  AppOverlay(context).showOverlay(children: [
+                    Text('holadasdasd')
+                  ]);
+                },
+                child: Container(
+                  height: 30,
+                  width: 30,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: AppColors.primary
+                  ),
+                  child: Icon(
+                    Icons.shopping_basket,
+                    size: AppSpacing.sl,
+                    color: AppColors.white,
+                  ),
                 ),
               ),
             ],

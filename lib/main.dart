@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shopping_cart/ui/bloc/shpping_cart/shopping_cart_bloc.dart';
 import 'package:shopping_cart/ui/contants/colors.dart';
 import 'package:shopping_cart/ui/pages/home/home_page.dart';
 
@@ -9,14 +11,21 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Shopping cart',
-      theme: ThemeData(
-        primaryColor: AppColors.primary,
-        accentColor: AppColors.accent,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => ShoppingCartBloc(),
+        )
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Shopping cart',
+        theme: ThemeData(
+          primaryColor: AppColors.primary,
+          accentColor: AppColors.accent,
+        ),
+        home: HomePage(),
       ),
-      home: HomePage(),
     );
   }
 }
