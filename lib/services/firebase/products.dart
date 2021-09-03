@@ -14,7 +14,7 @@ class FrProductService extends ProductService {
         name: 'Producto 1',
         image:
             'https://s3.us-east-1.amazonaws.com/laikapp/images_products/99346b7c2a33b3d7886aec3eafb1f65b.png',
-        price: '1.500',
+        price: 6500,
         sku: 'aaaaeeee',
       ),
       Product(
@@ -24,7 +24,7 @@ class FrProductService extends ProductService {
         name: 'Producto 2',
         image:
             'https://s3.us-east-1.amazonaws.com/laikapp/images_products/99346b7c2a33b3d7886aec3eafb1f65b.png',
-        price: '2.500',
+        price: 6500,
         sku: 'aaaaeeee',
       ),
       Product(
@@ -34,7 +34,7 @@ class FrProductService extends ProductService {
         name: 'Producto 3',
         image:
             'https://s3.us-east-1.amazonaws.com/laikapp/images_products/99346b7c2a33b3d7886aec3eafb1f65b.png',
-        price: '3.500',
+        price: 6500,
         sku: 'aaaaeeee',
       ),
       Product(
@@ -44,7 +44,7 @@ class FrProductService extends ProductService {
         name: 'Producto 4',
         image:
             'https://s3.us-east-1.amazonaws.com/laikapp/images_products/99346b7c2a33b3d7886aec3eafb1f65b.png',
-        price: '6.500',
+        price: 6500,
         sku: 'aaaaeeee',
       ),
       Product(
@@ -54,7 +54,7 @@ class FrProductService extends ProductService {
         name: 'Producto 5',
         image:
             'https://s3.us-east-1.amazonaws.com/laikapp/images_products/99346b7c2a33b3d7886aec3eafb1f65b.png',
-        price: '2.500',
+        price: 6500,
         sku: 'aaaaeeee',
       )
     ];

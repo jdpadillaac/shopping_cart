@@ -5,6 +5,15 @@ class _BottomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final bloc = BlocProvider.of<ShoppingCartBloc>(context, listen: true);
+
+    int total = 0;
+
+    for (final item in bloc.productList) {
+      total = total + item.quantity * item.price ;
+    }
+
     return Container(
       height: 100,
       decoration: BoxDecoration(
@@ -24,7 +33,7 @@ class _BottomBar extends StatelessWidget {
         margin: EdgeInsets.symmetric(vertical: AppSpacing.sm),
         child: Center(
           child: Text(
-            'Completar:   150000 ',
+            'Completar:   ${total.toString()} ',
             style: TextStyle(color: AppColors.white),
           ),
         ),

@@ -58,7 +58,7 @@ class _ProductItem extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  product.price,
+                  product.price.toString(),
                   style: TextStyle(
                       color: AppColors.green,
                       fontWeight: FontWeight.w600,

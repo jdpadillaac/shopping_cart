@@ -1,8 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-
-class ProductCart   {
-   ProductCart({
+class ProductCart {
+  ProductCart({
     required this.id,
     required this.quantity,
     required this.name,
@@ -15,15 +14,15 @@ class ProductCart   {
   final String name;
   final String sku;
   final String image;
-  final String price;
-   int quantity;
+  final int price;
+  int quantity;
 
   ProductCart copyWith({
     String? id,
     String? name,
     String? sku,
     String? image,
-    String? price,
+    int? price,
     int? quantity,
   }) {
     return ProductCart(
@@ -43,5 +42,4 @@ class ProductCart   {
       }
     }
   }
-
 }

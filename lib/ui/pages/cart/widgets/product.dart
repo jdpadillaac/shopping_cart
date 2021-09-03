@@ -89,7 +89,7 @@ class _CartProduct extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        product.price,
+                        product.price.toString(),
                         style: TextStyle(
                           fontSize: 16,
                           color: AppColors.primary,

@@ -13,5 +13,5 @@ class Product {
   final String sku;
   final String description;
   final String image;
-  final String price;
+  final int price;
 }

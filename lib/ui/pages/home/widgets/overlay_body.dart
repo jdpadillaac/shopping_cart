@@ -36,7 +36,7 @@ class _OverlayBody extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    product.price,
+                    product.price.toString(),
                     style: TextStyle(
                       color: AppColors.green,
                       fontSize: 20,
