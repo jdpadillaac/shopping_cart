@@ -8,7 +8,7 @@ class FrProductService extends ProductService {
 
     return [
       Product(
-        id: 'asdasd',
+        id: 'thrafgaer',
         description:
             'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
         name: 'Producto 1',
@@ -18,40 +18,40 @@ class FrProductService extends ProductService {
         sku: 'aaaaeeee',
       ),
       Product(
-        id: 'asdasd',
+        id: 'aswergwerasdasd',
         description:
             'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-        name: 'Producto 1',
+        name: 'Producto 2',
         image:
             'https://s3.us-east-1.amazonaws.com/laikapp/images_products/99346b7c2a33b3d7886aec3eafb1f65b.png',
         price: '2.500',
         sku: 'aaaaeeee',
       ),
       Product(
-        id: 'asdasd',
+        id: 'asdasdf53245asd',
         description:
             'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-        name: 'Producto 1',
+        name: 'Producto 3',
         image:
             'https://s3.us-east-1.amazonaws.com/laikapp/images_products/99346b7c2a33b3d7886aec3eafb1f65b.png',
         price: '3.500',
         sku: 'aaaaeeee',
       ),
       Product(
-        id: 'asdasd',
+        id: 'asd234562346asd',
         description:
             'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-        name: 'Producto 1',
+        name: 'Producto 4',
         image:
             'https://s3.us-east-1.amazonaws.com/laikapp/images_products/99346b7c2a33b3d7886aec3eafb1f65b.png',
         price: '6.500',
         sku: 'aaaaeeee',
       ),
       Product(
-        id: 'asdasd',
+        id: '89078906785',
         description:
             'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-        name: 'Producto 1',
+        name: 'Producto 5',
         image:
             'https://s3.us-east-1.amazonaws.com/laikapp/images_products/99346b7c2a33b3d7886aec3eafb1f65b.png',
         price: '2.500',

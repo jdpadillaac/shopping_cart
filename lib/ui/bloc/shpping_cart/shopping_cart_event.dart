@@ -1,7 +1,9 @@
 part of 'shopping_cart_bloc.dart';
 
 @immutable
-abstract class ShoppingCartEvent extends Equatable {}
+abstract class ShoppingCartEvent extends Equatable {
+  const ShoppingCartEvent();
+}
 
 class GetProducts extends ShoppingCartEvent {
   @override
@@ -19,4 +21,26 @@ class AddProduct extends ShoppingCartEvent {
 
   @override
   List<Object?> get props => [product, quantity];
+}
+
+class AddProductQuantity extends ShoppingCartEvent {
+  const AddProductQuantity({
+    required this.productId,
+  });
+
+  final String productId;
+
+  @override
+  List<Object?> get props => [productId];
+}
+
+class ReduceQuantity extends ShoppingCartEvent {
+  const ReduceQuantity({
+    required this.productId,
+  });
+
+  final String productId;
+
+  @override
+  List<Object?> get props => [productId];
 }

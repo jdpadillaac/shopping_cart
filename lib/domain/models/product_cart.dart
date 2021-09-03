@@ -1,5 +1,5 @@
 class ProductCart {
-  const ProductCart({
+  ProductCart({
     required this.id,
     required this.quantity,
     required this.name,
@@ -13,5 +13,13 @@ class ProductCart {
   final String sku;
   final String image;
   final String price;
-  final int quantity;
+  int quantity;
+
+  static ProductCart? findById(List<ProductCart> list, String id) {
+    for (final item in list) {
+      if (item.id == id) {
+        return item;
+      }
+    }
+  }
 }

@@ -13,7 +13,7 @@ part 'shopping_cart_state.dart';
 class ShoppingCartBloc extends Bloc<ShoppingCartEvent, ShoppingCartState> {
   ShoppingCartBloc() : super(ShoppingCartInitial());
 
-  final List<ProductCart> _productList = <ProductCart>[];
+  List<ProductCart> productList = <ProductCart>[];
 
   @override
   Stream<ShoppingCartState> mapEventToState(
@@ -22,16 +22,49 @@ class ShoppingCartBloc extends Bloc<ShoppingCartEvent, ShoppingCartState> {
     if (event is AddProduct) {
       yield* _mapAddProductToState(event);
     } else if (event is GetProducts) {
-      yield ProductAdded(products: _productList);
+      yield ProductAdded(products: productList);
+    } else if (event is AddProductQuantity) {
+      yield* _mapAddProductQuantityToState(event);
+    } else if (event is ReduceQuantity) {
+      yield* _mapReduceQuantityToState(event);
+    }
+  }
+
+  Stream<ShoppingCartState> _mapAddProductQuantityToState(
+      AddProductQuantity event) async* {
+    final newList = [...productList];
+    ProductCart? founded;
+    if (newList.isNotEmpty) {
+      founded = ProductCart.findById(newList, event.productId);
+    }
+
+    if (founded != null) {
+      newList.remove(founded);
+      newList.add(
+        ProductCart(
+          id: founded.id,
+          quantity: founded.quantity + 1,
+          name: founded.name,
+          image: founded.image,
+          price: founded.price,
+          sku: founded.sku,
+        ),
+      );
+      productList = newList;
+      yield ProductAdded(products: newList);
     }
   }
 
   Stream<ShoppingCartState> _mapAddProductToState(AddProduct event) async* {
-    final ProductCart? founded = _productList.firstWhere(
-      (element) => element.id == event.product.id
-    );
+    final newList = [...productList];
+    ProductCart? founded;
+
+    if (newList.isNotEmpty) {
+      founded = ProductCart.findById(newList, event.product.id);
+    }
+
     if (founded == null) {
-      _productList.add(
+      newList.add(
         ProductCart(
           id: event.product.id,
           quantity: event.quantity,
@@ -41,7 +74,34 @@ class ShoppingCartBloc extends Bloc<ShoppingCartEvent, ShoppingCartState> {
           sku: event.product.sku,
         ),
       );
-      yield ProductAdded(products: _productList);
+      productList = newList;
+      yield ProductAdded(products: newList);
     }
   }
+
+  Stream<ShoppingCartState> _mapReduceQuantityToState(
+      ReduceQuantity event) async* {
+    final newList = [...productList];
+    ProductCart? founded;
+    if (newList.isNotEmpty) {
+      founded = ProductCart.findById(newList, event.productId);
+    }
+
+    if (founded != null && founded.quantity > 0) {
+      newList.remove(founded);
+      newList.add(
+        ProductCart(
+          id: founded.id,
+          quantity: founded.quantity - 1,
+          name: founded.name,
+          image: founded.image,
+          price: founded.price,
+          sku: founded.sku,
+        ),
+      );
+      productList = newList;
+      yield ProductAdded(products: newList);
+    }
+  }
+
 }
