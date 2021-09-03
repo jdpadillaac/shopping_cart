@@ -27,30 +27,30 @@ class ShoppingCartBloc extends Bloc<ShoppingCartEvent, ShoppingCartState> {
       yield* _mapAddProductQuantityToState(event);
     } else if (event is ReduceQuantity) {
       yield* _mapReduceQuantityToState(event);
+    } else if (event is ProductDeleted) {
+      yield* _mapProductDeletedToState(event.productId);
     }
+  }
+
+  Stream<ShoppingCartState> _mapProductDeletedToState(String productId) async* {
+    final founded = ProductCart.findById(productList, productId);
+    if (founded !=  null) {
+      productList.remove(founded);
+    }
+    yield ProductAdded(products: [...productList]);
   }
 
   Stream<ShoppingCartState> _mapAddProductQuantityToState(
       AddProductQuantity event) async* {
-    final newList = [...productList];
-    ProductCart? founded;
+    List<ProductCart> newList = <ProductCart>[];
+    newList = [...productList];
     if (newList.isNotEmpty) {
-      founded = ProductCart.findById(newList, event.productId);
-    }
-
-    if (founded != null) {
-      newList.remove(founded);
-      newList.add(
-        ProductCart(
-          id: founded.id,
-          quantity: founded.quantity + 1,
-          name: founded.name,
-          image: founded.image,
-          price: founded.price,
-          sku: founded.sku,
-        ),
-      );
-      productList = newList;
+      for (ProductCart item in newList) {
+        if (item.id == event.productId) {
+          item.quantity = item.quantity + 1;
+        }
+      }
+      productList = [...newList];
       yield ProductAdded(products: newList);
     }
   }
@@ -82,17 +82,13 @@ class ShoppingCartBloc extends Bloc<ShoppingCartEvent, ShoppingCartState> {
   Stream<ShoppingCartState> _mapReduceQuantityToState(
       ReduceQuantity event) async* {
     final newList = [...productList];
-    ProductCart? founded;
-    founded = ProductCart.findById(newList, event.productId);
-
-    if (founded != null ) {
-      newList.remove(founded);
-      if (founded.quantity > 0) {
-        newList.remove(founded);
-        newList.add(founded.copyWith(quantity: founded.quantity - 1));
+    for (ProductCart item in newList) {
+      if (item.id == event.productId) {
+        if (item.quantity > 0) {
+          item.quantity = item.quantity - 1;
+        }
       }
     }
-
     productList = newList;
     yield ProductAdded(products: newList);
   }
