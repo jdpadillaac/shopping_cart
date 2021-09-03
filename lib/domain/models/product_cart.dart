@@ -15,6 +15,24 @@ class ProductCart {
   final String price;
   int quantity;
 
+  ProductCart copyWith({
+    String? id,
+    String? name,
+    String? sku,
+    String? image,
+    String? price,
+    int? quantity,
+  }) {
+    return ProductCart(
+      name: name ?? this.name,
+      image: image ?? this.image,
+      id: id ?? this.id,
+      quantity: quantity ?? this.quantity,
+      price: price ?? this.price,
+      sku: sku ?? this.sku,
+    );
+  }
+
   static ProductCart? findById(List<ProductCart> list, String id) {
     for (final item in list) {
       if (item.id == id) {

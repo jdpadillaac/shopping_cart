@@ -83,25 +83,13 @@ class ShoppingCartBloc extends Bloc<ShoppingCartEvent, ShoppingCartState> {
       ReduceQuantity event) async* {
     final newList = [...productList];
     ProductCart? founded;
-    if (newList.isNotEmpty) {
-      founded = ProductCart.findById(newList, event.productId);
-    }
+    founded = ProductCart.findById(newList, event.productId);
 
     if (founded != null && founded.quantity > 0) {
       newList.remove(founded);
-      newList.add(
-        ProductCart(
-          id: founded.id,
-          quantity: founded.quantity - 1,
-          name: founded.name,
-          image: founded.image,
-          price: founded.price,
-          sku: founded.sku,
-        ),
-      );
+      newList.add(founded.copyWith(quantity: founded.quantity - 1));
       productList = newList;
       yield ProductAdded(products: newList);
     }
   }
-
 }

@@ -11,6 +11,7 @@ import 'package:shopping_cart/ui/contants/spacing.dart';
 import 'package:shopping_cart/ui/shared/overlay.dart';
 
 part 'widgets/product.dart';
+part 'widgets/overlay_body.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
