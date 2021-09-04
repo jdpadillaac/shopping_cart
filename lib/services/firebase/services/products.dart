@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:shopping_cart/domain/models/product.dart';
-import 'package:shopping_cart/domain/services/products_service.dart';
-import 'package:shopping_cart/services/firebase/mappers/product.dart';
+import '../../../domain/models/product.dart';
+import '../../../domain/services/products_service.dart';
+import '../mappers/product.dart';
 
 class FrProductService extends ProductService {
   final _mapper = FrProductMapper();

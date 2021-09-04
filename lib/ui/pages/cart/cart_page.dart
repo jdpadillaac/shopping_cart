@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shopping_cart/domain/models/product_cart.dart';
-import 'package:shopping_cart/ui/bloc/shpping_cart/shopping_cart_bloc.dart';
-import 'package:shopping_cart/ui/contants/colors.dart';
-import 'package:shopping_cart/ui/contants/spacing.dart';
+import '../../../domain/models/product_cart.dart';
+import '../../bloc/shpping_cart/shopping_cart_bloc.dart';
+import '../../contants/colors.dart';
+import '../../contants/spacing.dart';
 
 part 'widgets/header.dart';
 

@@ -1,8 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping_cart/ui/contants/colors.dart';
-import 'package:shopping_cart/ui/contants/spacing.dart';
+import '../contants/colors.dart';
+import '../contants/spacing.dart';
 
 class AppOverlay {
   final BuildContext context;

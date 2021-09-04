@@ -1,5 +1,5 @@
-import 'package:shopping_cart/domain/models/product.dart';
-import 'package:shopping_cart/domain/shared/mapper.dart';
+import '../../../domain/models/product.dart';
+import '../../../domain/shared/mapper.dart';
 
 class FrProductMapper extends Mapper<Product> {
   @override

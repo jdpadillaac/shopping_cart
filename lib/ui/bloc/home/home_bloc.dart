@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
-import 'package:shopping_cart/domain/models/product.dart';
-import 'package:shopping_cart/domain/services/products_service.dart';
+import '../../../domain/models/product.dart';
+import '../../../domain/services/products_service.dart';
 
 part 'home_event.dart';
 
