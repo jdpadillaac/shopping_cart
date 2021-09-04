@@ -18,7 +18,7 @@ class AppOverlay {
   Future<dynamic> showOverlay({
     required List<Widget>? children,
     VoidCallback? onClosedPressed,
-    String closeBtnLabel = 'CERRAR',
+    String closeBtnLabel = 'ACEPTAR',
     String? acceptButtonText,
     VoidCallback? onAcceptTap,
   }) {

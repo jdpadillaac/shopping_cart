@@ -5,8 +5,10 @@ class _Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final responsive = AppResponsive(context);
+
     return SizedBox(
-      height: 80,
+      height: responsive.height(80),
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
         child: Row(
@@ -35,8 +37,9 @@ class _Header extends StatelessWidget {
               onTap: () => Navigator.pop(context),
               child: Container(
                 decoration: BoxDecoration(
-                    color: AppColors.primary,
-                    borderRadius: BorderRadius.circular(50)),
+                  color: AppColors.primary,
+                  borderRadius: BorderRadius.circular(50),
+                ),
                 child: Container(
                   margin: const EdgeInsets.all(4),
                   child: const Icon(

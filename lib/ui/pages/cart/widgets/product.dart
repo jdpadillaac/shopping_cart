@@ -10,6 +10,7 @@ class _CartProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final responsive = AppResponsive(context);
     final bloc = BlocProvider.of<ShoppingCartBloc>(context);
     int quantity = 0;
     ProductCart? productFounded;
@@ -30,7 +31,7 @@ class _CartProduct extends StatelessWidget {
       background: const SizedBox.shrink(),
       secondaryBackground: Container(
         color: Colors.red,
-        width: 20,
+        width: responsive.width(20),
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
           child: Row(
@@ -45,7 +46,7 @@ class _CartProduct extends StatelessWidget {
         ),
       ),
       child: Container(
-        height: 115,
+        height: responsive.height(115),
         decoration: const BoxDecoration(
           border: Border(
             bottom: BorderSide(width: 0.5, color: Colors.grey),

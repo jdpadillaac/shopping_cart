@@ -64,9 +64,10 @@ class _ProductItem extends StatelessWidget {
                 Text(
                   product.price.toString(),
                   style: const TextStyle(
-                      color: AppColors.green,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20),
+                    color: AppColors.green,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20,
+                  ),
                 ),
               ],
             ),
