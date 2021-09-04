@@ -1,4 +1,4 @@
-import 'package:shopping_cart/domain/models/product_cart.dart';
+import 'product_cart.dart';
 
 class RqRegisterCart {
   const RqRegisterCart({

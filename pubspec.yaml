@@ -16,6 +16,7 @@ dependencies:
   cloud_firestore: ^2.5.1
   cupertino_icons: ^1.0.2
   another_flushbar: ^1.10.24
+  uuid: ^3.0.4
 
 dev_dependencies:
   flutter_lints: ^1.0.4
