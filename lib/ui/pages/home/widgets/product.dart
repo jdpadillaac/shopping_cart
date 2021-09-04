@@ -10,32 +10,35 @@ class _ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final responsive = AppResponsive(context);
+
     return Container(
-      height: 120,
+      height: responsive.height(120),
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(AppSpacing.sl),
         boxShadow: [
           BoxShadow(
             color: AppColors.accent.withOpacity(0.1),
-            offset: Offset(0, 5), //(x,y)
+            offset: const Offset(0, 5), //(x,y)
             blurRadius: 10,
           ),
         ],
       ),
-      padding: EdgeInsets.all(AppSpacing.md),
+      padding: EdgeInsets.symmetric(
+          vertical: responsive.height(AppSpacing.md),
+          horizontal: responsive.width(AppSpacing.md)),
       margin: EdgeInsets.symmetric(
-        vertical: AppSpacing.md,
-        horizontal: AppSpacing.md,
-      ),
+          vertical: responsive.height(AppSpacing.md),
+          horizontal: responsive.width(AppSpacing.md)),
       child: Row(
         children: [
           Image.network(
             product.image,
-            width: 90,
+            width: responsive.width(90),
           ),
           SizedBox(
-            width: AppSpacing.sl,
+            width: responsive.width(AppSpacing.sl),
           ),
           Expanded(
             child: Column(
@@ -44,14 +47,15 @@ class _ProductItem extends StatelessWidget {
               children: [
                 Text(
                   product.name,
-                  style: TextStyle(
-                      color: AppColors.accent,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20),
+                  style: const TextStyle(
+                    color: AppColors.accent,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20,
+                  ),
                 ),
                 Text(
                   product.description,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: AppColors.accent,
                     fontWeight: FontWeight.w600,
                     fontSize: 10,
@@ -59,7 +63,7 @@ class _ProductItem extends StatelessWidget {
                 ),
                 Text(
                   product.price.toString(),
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: AppColors.green,
                       fontWeight: FontWeight.w600,
                       fontSize: 20),
@@ -79,13 +83,13 @@ class _ProductItem extends StatelessWidget {
                   );
                 },
                 child: Container(
-                  height: 30,
-                  width: 30,
+                  height: responsive.height(30),
+                  width: responsive.width(30),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
                     color: AppColors.primary,
                   ),
-                  child: Icon(
+                  child: const Icon(
                     Icons.shopping_basket,
                     size: AppSpacing.sl,
                     color: AppColors.white,
@@ -116,12 +120,13 @@ class _DotButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final primaryColor = isPrimary ? AppColors.primary : null;
     final borderColor = isPrimary ? AppColors.primary : AppColors.green;
+    final responsive = AppResponsive(context);
 
     return InkWell(
       onTap: onPressed,
       child: Container(
-        width: 35,
-        height: 35,
+        width: responsive.width(35),
+        height: responsive.height(35),
         decoration: BoxDecoration(
           color: primaryColor,
           borderRadius: BorderRadius.circular(50),

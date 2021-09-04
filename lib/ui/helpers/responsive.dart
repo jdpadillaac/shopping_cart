@@ -16,12 +16,12 @@ class AppResponsive {
     }
   }
 
-  double widthConfig(double pixels) {
+  double width(double pixels) {
     double doublePercent = (pixels * 100.0) / 375.0;
     return (_width! * doublePercent) / 100.0;
   }
 
-  double heightConfig(double pixels) {
+  double height(double pixels) {
     double doublePercent = (pixels * 100.0) / 812.0;
     return (_height! * doublePercent) / 100.0;
   }
