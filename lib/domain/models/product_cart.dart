@@ -1,5 +1,3 @@
-import 'package:equatable/equatable.dart';
-
 class ProductCart {
   ProductCart({
     required this.id,

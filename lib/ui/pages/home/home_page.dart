@@ -24,8 +24,8 @@ class HomePage extends StatelessWidget {
     return BlocProvider(
       create: (context) => HomeBloc(
         productService: context.read<ProductService>(),
-      )..add(LoadData()),
-      child: _PageView(),
+      )..add(const LoadData()),
+      child: const _PageView(),
     );
   }
 }
@@ -37,7 +37,7 @@ class _PageView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: AppColors.primary),
+        iconTheme: const IconThemeData(color: AppColors.primary),
         backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: false,
@@ -45,13 +45,13 @@ class _PageView extends StatelessWidget {
           'Productos',
           style: TextStyle(color: AppColors.primary),
         ),
-        actions: [_HomeCart()],
+        actions: const [_HomeCart()],
       ),
       drawer: Container(),
       body: BlocBuilder<HomeBloc, HomeState>(
         builder: (BuildContext context, HomeState state) {
           if (state is HomeInitial) {
-            return Center(
+            return  const Center(
               child: CircularProgressIndicator(
                 color: AppColors.primary,
               ),
@@ -59,9 +59,9 @@ class _PageView extends StatelessWidget {
           } else if (state is LoadedProducts) {
             return _ProductList(products: state.products);
           } else if (state is QueryError) {
-            return SizedBox.shrink();
+            return const SizedBox.shrink();
           } else {
-            return SizedBox.shrink();
+            return const SizedBox.shrink();
           }
         },
       ),
@@ -89,4 +89,3 @@ class _ProductList extends StatelessWidget {
     );
   }
 }
-

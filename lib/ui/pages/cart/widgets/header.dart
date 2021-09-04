@@ -8,13 +8,13 @@ class _Header extends StatelessWidget {
     return SizedBox(
       height: 80,
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: AppSpacing.md),
+        margin: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Row(
-              children: [
+              children: const [
                 Icon(
                   Icons.shopping_basket,
                   color: AppColors.green,
@@ -38,8 +38,8 @@ class _Header extends StatelessWidget {
                     color: AppColors.primary,
                     borderRadius: BorderRadius.circular(50)),
                 child: Container(
-                  margin: EdgeInsets.all(4),
-                  child: Icon(
+                  margin: const EdgeInsets.all(4),
+                  child: const Icon(
                     Icons.close,
                     color: AppColors.white,
                     size: 15,

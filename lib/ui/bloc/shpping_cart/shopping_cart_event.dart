@@ -11,7 +11,7 @@ class GetProducts extends ShoppingCartEvent {
 }
 
 class AddProduct extends ShoppingCartEvent {
-  AddProduct({
+  const AddProduct({
     required this.product,
     required this.quantity,
   });
