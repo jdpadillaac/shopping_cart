@@ -4,6 +4,8 @@ import '../../../domain/services/products_service.dart';
 import '../mappers/product.dart';
 
 class FrProductService extends ProductService {
+  final _collectionReference =
+      FirebaseFirestore.instance.collection('products');
   final _mapper = FrProductMapper();
 
   @override
@@ -11,9 +13,7 @@ class FrProductService extends ProductService {
     List<Product> productList = [];
 
     try {
-      CollectionReference collectionReference =
-          FirebaseFirestore.instance.collection('products');
-      QuerySnapshot products = await collectionReference.get();
+      QuerySnapshot products = await _collectionReference.get();
 
       if (products.docs.isNotEmpty) {
         for (final element in products.docs) {

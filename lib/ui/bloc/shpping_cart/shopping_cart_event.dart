@@ -55,3 +55,10 @@ class ProductDeleted extends ShoppingCartEvent {
   @override
   List<Object?> get props => [productId];
 }
+
+class ResetList extends ShoppingCartEvent {
+  const ResetList();
+
+  @override
+  List<Object?> get props => [];
+}

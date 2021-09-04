@@ -5,35 +5,48 @@ class _BottomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = BlocProvider.of<ShoppingCartBloc>(context, listen: true);
+    final responsive = AppResponsive(context);
+    final pageBloc = BlocProvider.of<CartBloc>(context);
+    final shoppingCartBloc =
+        BlocProvider.of<ShoppingCartBloc>(context, listen: true);
 
     int total = 0;
 
-    for (final item in bloc.productList) {
+    for (final item in shoppingCartBloc.productList) {
       total = total + item.quantity * item.price;
     }
 
-    return Container(
-      height: 100,
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-              offset: Offset(0, -10), color: AppColors.gray, blurRadius: 10)
-        ],
-      ),
-      padding: const EdgeInsets.symmetric(
-          vertical: AppSpacing.md, horizontal: AppSpacing.md),
+    return InkWell(
+      onTap: () {
+        pageBloc.add(
+          CompleteButtonPressed(products: shoppingCartBloc.productList),
+        );
+      },
       child: Container(
-        decoration: BoxDecoration(
-          color: AppColors.primary,
-          borderRadius: BorderRadius.circular(10),
+        height: responsive.height(100),
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(0, -10),
+              color: AppColors.gray,
+              blurRadius: 10,
+            ),
+          ],
         ),
-        margin: const EdgeInsets.symmetric(vertical: AppSpacing.sm),
-        child: Center(
-          child: Text(
-            'Completar:   ${total.toString()} ',
-            style: const TextStyle(color: AppColors.white),
+        padding: const EdgeInsets.symmetric(
+            vertical: AppSpacing.md, horizontal: AppSpacing.md),
+        child: Container(
+          decoration: BoxDecoration(
+            color: AppColors.primary,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          margin: const EdgeInsets.symmetric(vertical: AppSpacing.sm),
+          child: Center(
+            child: Text(
+              'Completar: ${total.toString()} ',
+              style: const TextStyle(color: AppColors.white),
+            ),
           ),
         ),
       ),

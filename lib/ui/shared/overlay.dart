@@ -128,13 +128,14 @@ class AppOverlay {
           width: double.infinity,
           child: Column(
             children: [
-              if (accept != null && accept.isNotEmpty)
-                const SizedBox(width: double.infinity, child: Text('cerrar')),
               const SizedBox(
                 height: AppSpacing.sm,
               ),
-              SizedBox(
-                width: double.infinity,
+              Container(
+                  width: double.infinity,
+                margin: const EdgeInsets.only(
+                  bottom: 10
+                ),
                 child: InkWell(
                   onTap: _onCloseOverlay,
                   child: Container(

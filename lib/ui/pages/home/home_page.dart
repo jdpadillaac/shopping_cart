@@ -20,6 +20,16 @@ part 'widgets/cart.dart';
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
+  static void navigate(BuildContext context) {
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const HomePage(),
+      ),
+      (route) => false,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -52,7 +62,7 @@ class _PageView extends StatelessWidget {
       body: BlocBuilder<HomeBloc, HomeState>(
         builder: (BuildContext context, HomeState state) {
           if (state is HomeInitial) {
-            return  const Center(
+            return const Center(
               child: CircularProgressIndicator(
                 color: AppColors.primary,
               ),

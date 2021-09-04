@@ -29,12 +29,15 @@ class ShoppingCartBloc extends Bloc<ShoppingCartEvent, ShoppingCartState> {
       yield* _mapReduceQuantityToState(event);
     } else if (event is ProductDeleted) {
       yield* _mapProductDeletedToState(event.productId);
+    } else if (event is ResetList) {
+      productList = [];
+      yield const ProductAdded(products: []);
     }
   }
 
   Stream<ShoppingCartState> _mapProductDeletedToState(String productId) async* {
     final founded = ProductCart.findById(productList, productId);
-    if (founded !=  null) {
+    if (founded != null) {
       productList.remove(founded);
     }
     yield ProductAdded(products: [...productList]);
