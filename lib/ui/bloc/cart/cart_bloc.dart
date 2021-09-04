@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:shopping_cart/domain/models/product_cart.dart';
-import 'package:shopping_cart/domain/services/cart_service.dart';
+import '../../../domain/models/product_cart.dart';
+import '../../../domain/services/cart_service.dart';
 
 part 'cart_event.dart';
 part 'cart_state.dart';

@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:shopping_cart/domain/models/cart.dart';
-import 'package:shopping_cart/domain/services/cart_service.dart';
+import '../../../domain/models/cart.dart';
+import '../../../domain/services/cart_service.dart';
 
 class FrCartService extends CartService {
   final _collectionReference = FirebaseFirestore.instance.collection('carts');

@@ -1,14 +1,15 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shopping_cart/domain/services/cart_service.dart';
-import 'package:shopping_cart/ui/bloc/cart/cart_bloc.dart';
-import 'package:shopping_cart/ui/helpers/responsive.dart';
-import 'package:shopping_cart/ui/pages/home/home_page.dart';
+import '../../../domain/services/cart_service.dart';
+import '../../bloc/cart/cart_bloc.dart';
+import '../../constants/colors.dart';
+import '../../constants/spacing.dart';
+import '../../helpers/responsive.dart';
+import '../home/home_page.dart';
 import '../../../domain/models/product_cart.dart';
 import '../../bloc/shpping_cart/shopping_cart_bloc.dart';
-import '../../contants/colors.dart';
-import '../../contants/spacing.dart';
+
 
 part 'widgets/header.dart';
 
