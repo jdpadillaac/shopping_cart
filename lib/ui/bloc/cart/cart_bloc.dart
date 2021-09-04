@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:shopping_cart/domain/models/cart.dart';
 import '../../../domain/models/product_cart.dart';
 import '../../../domain/services/cart_service.dart';
 
@@ -27,10 +28,23 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   Stream<CartState> _mapCompleteButtonPressedToState(
     CompleteButtonPressed event,
   ) async* {
-    yield const Loading();
+    int sum = 0;
 
-    await Future.delayed(const Duration(seconds: 2));
-
-    yield const RegisterSuccess();
+    for (final item in event.products) {
+      sum = sum + (item.quantity * item.price);
+    }
+    
+    try {
+      await cartService.save(
+        RqRegisterCart(
+          products: event.products,
+          status: 'completed',
+          total: sum,
+        ),
+      );
+      yield const RegisterSuccess();
+    } catch (_) {
+      yield const RegisterError();
+    }
   }
 }
