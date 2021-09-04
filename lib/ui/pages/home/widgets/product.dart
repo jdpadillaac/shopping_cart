@@ -13,7 +13,6 @@ class _ProductItem extends StatelessWidget {
     final responsive = AppResponsive(context);
 
     return Container(
-      height: responsive.height(120),
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(AppSpacing.sl),
@@ -26,22 +25,27 @@ class _ProductItem extends StatelessWidget {
         ],
       ),
       padding: EdgeInsets.symmetric(
-          vertical: responsive.height(AppSpacing.md),
-          horizontal: responsive.width(AppSpacing.md)),
+        vertical: responsive.height(AppSpacing.md),
+        horizontal: responsive.width(AppSpacing.md),
+      ),
       margin: EdgeInsets.symmetric(
-          vertical: responsive.height(AppSpacing.md),
-          horizontal: responsive.width(AppSpacing.md)),
+        vertical: responsive.height(AppSpacing.md),
+        horizontal: responsive.width(AppSpacing.md),
+      ),
       child: Row(
         children: [
           Image.network(
             product.image,
-            width: responsive.width(90),
+            width: responsive.width(100),
+            height: responsive.height(100),
+            fit: BoxFit.cover,
           ),
           SizedBox(
             width: responsive.width(AppSpacing.sl),
           ),
           Expanded(
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -71,6 +75,9 @@ class _ProductItem extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+          SizedBox(
+            width: responsive.width(AppSpacing.sl),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.end,

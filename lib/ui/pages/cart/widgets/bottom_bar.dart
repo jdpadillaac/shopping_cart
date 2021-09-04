@@ -23,7 +23,7 @@ class _BottomBar extends StatelessWidget {
         );
       },
       child: Container(
-        height: responsive.height(100),
+        height: responsive.height(110),
         decoration: const BoxDecoration(
           color: Colors.white,
           boxShadow: [
@@ -34,8 +34,12 @@ class _BottomBar extends StatelessWidget {
             ),
           ],
         ),
-        padding: const EdgeInsets.symmetric(
-            vertical: AppSpacing.md, horizontal: AppSpacing.md),
+        padding: EdgeInsets.symmetric(
+          vertical: responsive.height(AppSpacing.md),
+          horizontal: responsive.width(
+            AppSpacing.md,
+          ),
+        ),
         child: Container(
           decoration: BoxDecoration(
             color: AppColors.primary,

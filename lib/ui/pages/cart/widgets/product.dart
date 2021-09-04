@@ -46,7 +46,7 @@ class _CartProduct extends StatelessWidget {
         ),
       ),
       child: Container(
-        height: responsive.height(115),
+        height: responsive.height(170),
         decoration: const BoxDecoration(
           border: Border(
             bottom: BorderSide(width: 0.5, color: Colors.grey),
@@ -108,6 +108,7 @@ class _CartProduct extends StatelessWidget {
                     ),
                   ),
                   child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       InkWell(
