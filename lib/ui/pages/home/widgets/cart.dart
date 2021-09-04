@@ -18,9 +18,9 @@ class _HomeCart extends StatelessWidget {
             child: Container(
               width: 18,
               height: 18,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: AppColors.primary,
-                borderRadius: const BorderRadius.all(
+                borderRadius: BorderRadius.all(
                   Radius.circular(50),
                 ),
               ),
@@ -31,7 +31,7 @@ class _HomeCart extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.symmetric(
               horizontal: AppSpacing.md,
             ),

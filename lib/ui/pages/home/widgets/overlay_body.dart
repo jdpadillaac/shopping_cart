@@ -28,60 +28,58 @@ class _OverlayBody extends StatelessWidget {
           children: [
             Text(
               product.name,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
             ),
             Container(
-              margin: EdgeInsets.all(AppSpacing.md),
+              margin: const EdgeInsets.all(AppSpacing.md),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     product.price.toString(),
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: AppColors.green,
                       fontSize: 20,
                     ),
                   ),
-                  Container(
-                    child: Row(
-                      children: [
-                        _DotButton(
-                          onPressed: () {
-                            if (productFounded != null) {
-                              bloc.add(
-                                ReduceQuantity(productId: productFounded.id),
-                              );
-                            }
-                          },
-                          icon: Icon(Icons.remove),
+                  Row(
+                    children: [
+                      _DotButton(
+                        onPressed: () {
+                          if (productFounded != null) {
+                            bloc.add(
+                              ReduceQuantity(productId: productFounded.id),
+                            );
+                          }
+                        },
+                        icon: const Icon(Icons.remove),
+                      ),
+                      const SizedBox(
+                        width: AppSpacing.sl,
+                      ),
+                      Text(quantity.toString()),
+                      const SizedBox(
+                        width: AppSpacing.sl,
+                      ),
+                      _DotButton(
+                        onPressed: () {
+                          if (productFounded == null) {
+                            bloc.add(
+                              AddProduct(product: product, quantity: 1),
+                            );
+                          } else {
+                            bloc.add(
+                              AddProductQuantity(productId: product.id),
+                            );
+                          }
+                        },
+                        icon: const Icon(
+                          Icons.add,
+                          color: Colors.white,
                         ),
-                        SizedBox(
-                          width: AppSpacing.sl,
-                        ),
-                        Text(quantity.toString()),
-                        SizedBox(
-                          width: AppSpacing.sl,
-                        ),
-                        _DotButton(
-                          onPressed: () {
-                            if (productFounded == null) {
-                              bloc.add(
-                                AddProduct(product: product, quantity: 1),
-                              );
-                            } else {
-                              bloc.add(
-                                AddProductQuantity(productId: product.id),
-                              );
-                            }
-                          },
-                          icon: Icon(
-                            Icons.add,
-                            color: Colors.white,
-                          ),
-                          isPrimary: true,
-                        ),
-                      ],
-                    ),
+                        isPrimary: true,
+                      ),
+                    ],
                   ),
                 ],
               ),

@@ -98,14 +98,6 @@ class AppOverlay {
     }
   }
 
-  void _onAccept() {
-    hideOverlay();
-
-    if (onAcceptPressed != null) {
-      onAcceptPressed!.call();
-    }
-  }
-
   Widget _getChildWidget(String? accept) => Column(
         key: const Key('overrlay-container-column'),
         mainAxisSize: MainAxisSize.min,
@@ -131,14 +123,14 @@ class AppOverlay {
 
   Widget _getCloseButton(String? accept) => SafeArea(
         child: Container(
-          margin: EdgeInsets.only(
+          margin: const EdgeInsets.only(
               left: AppSpacing.md, right: AppSpacing.md, top: AppSpacing.md),
           width: double.infinity,
           child: Column(
             children: [
               if (accept != null && accept.isNotEmpty)
-                SizedBox(width: double.infinity, child: Text('cerrar')),
-              SizedBox(
+                const SizedBox(width: double.infinity, child: Text('cerrar')),
+              const SizedBox(
                 height: AppSpacing.sm,
               ),
               SizedBox(
@@ -146,7 +138,7 @@ class AppOverlay {
                 child: InkWell(
                   onTap: _onCloseOverlay,
                   child: Container(
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     width: double.infinity,
                     decoration: BoxDecoration(
                       border: Border.all(
