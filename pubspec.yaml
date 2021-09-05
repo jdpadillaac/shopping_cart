@@ -17,9 +17,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   another_flushbar: ^1.10.24
   uuid: ^3.0.4
+  
 
 dev_dependencies:
   flutter_lints: ^1.0.4
+  mocktail: ^0.1.4
+  bloc_test: ^8.1.0
   flutter_test:
     sdk: flutter
 
