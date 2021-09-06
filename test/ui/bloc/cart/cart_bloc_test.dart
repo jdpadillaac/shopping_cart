@@ -7,14 +7,14 @@ import 'package:shopping_cart/ui/bloc/cart/cart_bloc.dart';
 
 class MockCartService extends Mock implements CartService {}
 
-class Aasfdasd extends Fake implements RqRegisterCart {}
+class RqRegisterCartMock extends Fake implements RqRegisterCart {}
 
 void main() {
   late CartBloc cartBloc;
   late CartService cartService;
 
   setUp(() {
-    registerFallbackValue(Aasfdasd());
+    registerFallbackValue(RqRegisterCartMock());
     cartService = MockCartService();
     cartBloc = CartBloc(cartService: cartService);
   });
