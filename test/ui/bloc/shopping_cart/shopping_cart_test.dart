@@ -7,10 +7,20 @@ import 'package:shopping_cart/ui/bloc/shpping_cart/shopping_cart_bloc.dart';
 class MockProduct extends Fake implements Product {}
 
 void main() {
-  final bloc = ShoppingCartBloc();
+  late ShoppingCartBloc bloc;
+
+  const productTest = Product(
+    description: 'asd',
+    id: 'asd',
+    image: 'asd',
+    name: 'asdas',
+    price: 10,
+    sku: 'asdasd',
+  );
 
   setUp(() {
     registerFallbackValue(MockProduct());
+    bloc = ShoppingCartBloc();
   });
 
   group('Sooping cart test', () {
@@ -20,15 +30,20 @@ void main() {
     });
 
     group('description', () {
-      blocTest(
-        '',
+      blocTest<ShoppingCartBloc, ShoppingCartState>(
+        'emit [ProductAdded] when new product is added to list',
         build: () {
-          when(() => bloc.add(AddProduct(product: any(), quantity: 2)));
+          when(
+            () => bloc.add(
+              const AddProduct(
+                product: productTest,
+                quantity: 2,
+              ),
+            ),
+          );
           return bloc;
         },
-        expect: () => [
-          const ProductAdded(products: []),
-        ],
+        //TO DO verify and expect
       );
     });
   });
